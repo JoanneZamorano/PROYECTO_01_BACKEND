@@ -1,0 +1,28 @@
+{
+  "name": "web_01_backend",
+  "version": "1.0.0",
+  "description": "Esta API REST es una plataforma integral diseñada para conectar a usuarios con protectoras de animales en toda España. Permite gestionar el catálogo de mascotas disponibles, las sedes de las protectoras y el proceso de adopción de forma segura y organizada.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoanneZamorano/PROYECTO_01_BACKEND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoanneZamorano/PROYECTO_01_BACKEND/issues"
+  },
+  "homepage": "https://github.com/JoanneZamorano/PROYECTO_01_BACKEND#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
