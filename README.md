@@ -1,14 +1,29 @@
-# User Auth & Role Management API 🔐
+# PawAdopt API 🐾 - Sistema de Gestión de Adopciones
 
-Este proyecto es una solución de **Backend** centrada en la gestión robusta de usuarios, implementando un sistema completo de autenticación, autorización por roles y gestión de perfiles multimedia.
+Esta API REST es una plataforma integral diseñada para conectar a usuarios con protectoras de animales en toda España. Permite gestionar el catálogo de mascotas disponibles, las sedes de las protectoras y el proceso de adopción de forma segura y organizada.
 
 ## 🎯 Objetivo del Proyecto
-Desarrollar una base sólida de gestión de identidades que cumpla con los siguientes requisitos técnicos:
-* **Autenticación Segura:** Registro y Login utilizando **JWT (JSON Web Tokens)** y encriptación de contraseñas con **bcrypt**.
-* **Gestión de Roles:** Diferenciación de permisos entre usuarios estándar (`user`) y administradores (`admin`).
-* **Integridad de Datos:** Control estricto para evitar duplicados en los arrays de datos relacionados.
-* **Gestión Multimedia:** Subida de imágenes de perfil mediante el middleware de **Cloudinary** y borrado automático al eliminar la cuenta.
-* **Arquitectura:** Servidor Express conectado a MongoDB Atlas con una estructura de carpetas profesional.
+El proyecto implementa un sistema de backend robusto con tres modelos de datos interrelacionados, cumpliendo con los siguientes requisitos:
+* **Autenticación y Autorización:** Registro y login con **JWT** y roles diferenciados (`user`/`admin`).
+* **Relaciones Complejas:** Conexión entre Protectoras, Animales y Usuarios.
+* **Gestión Multimedia:** Subida y borrado de imágenes de perfiles y mascotas mediante **Cloudinary**.
+* **Integridad de Datos:** Validación para evitar duplicados en los arrays de adopciones y favoritos.
+
+---
+
+## 🏗️ Modelos de Datos
+
+### 1. Usuarios (`User`)
+* **Campos:** Nombre, email, password (encriptada), foto de perfil y rol.
+* **Relación:** Array de `animales_adoptados` que referencia al modelo de Mascotas.
+
+### 2. Animales (`Pet`)
+* **Campos:** Nombre, especie (perro, gato, ave, etc.), edad, descripción, foto y estado.
+* **Relación:** Campo `protectora` que vincula al animal con su centro de origen.
+
+### 3. Protectoras (`Shelter`)
+* **Campos:** Nombre (ej. Protectora de Guadalajara), ubicación/provincia, contacto y logo.
+* **Relación:** Array de `animales` que lista todos los especímenes disponibles en esa sede.
 
 ---
 
@@ -18,19 +33,19 @@ Desarrollar una base sólida de gestión de identidades que cumpla con los sigui
 * **Mongoose** - Modelado de datos y validaciones.
 * **JSON Web Token** - Manejo de sesiones seguras.
 * **Bcrypt** - Hashing de contraseñas.
-* **Cloudinary & Multer** - Procesamiento y almacenamiento de imágenes.
+* **Cloudinary & Multer** - Procesamiento y almacenamiento de imágenes
 
 ---
 
-## 📂 Estructura de Carpetas
+## 📂 Estructura del Proyecto
 ```text
 src/
 ├── api/
-│   ├── controllers/   # Lógica de Registro, Login y Gestión de Usuarios
-│   ├── models/        # Esquemas (User con campos de Rol e Imagen)
-│   └── routes/        # Endpoints protegidos y públicos
-├── config/            # Conexión a DB y Cloudinary
-├── middlewares/       # Auth (isAuth) y File upload
-├── utils/             # Generación de Tokens y validaciones
+│   ├── controllers/   # Lógica de Usuarios, Mascotas y Protectoras
+│   ├── models/        # Esquemas de Mongoose (User, Pet, Shelter)
+│   └── routes/        # Endpoints (públicos y protegidos)
+├── config/            # Configuración de DB y Cloudinary
+├── middlewares/       # Auth (isAuth) y Multer (subida de fotos)
+├── utils/             # Generación de Tokens y Seeds
 └── index.js           # Punto de entrada
 ```
