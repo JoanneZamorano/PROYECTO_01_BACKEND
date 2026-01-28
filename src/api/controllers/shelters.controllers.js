@@ -1,5 +1,5 @@
 const Shelter = require("../models/shelter.model");
-
+const { deleteImgCloudinary } = require("../../utils/cloudinary.util");
 
 /**
  * POST /api/shelters -> Método para crear una nueva protectora
@@ -8,6 +8,12 @@ const Shelter = require("../models/shelter.model");
 const postShelter = async (req, res) => {
     try {
         const newShelter = new Shelter(req.body);
+
+        // Si se subió un archivo, guardamos su información
+        if (req.file) {
+        newShelter.image = req.file.path;      // secure_url
+        }
+
         const shelterSaved = await newShelter.save();
         return res.status(201).json(shelterSaved);
     } catch (error) {
@@ -56,24 +62,51 @@ const putShelter = async (req, res) => {
     /**
      * DELETE /api/shelters/:id -> para eliminar una protectora de la base de datos
      */
-    const deleteShelter = async (req, res) => {
+const deleteShelter = async (req, res) => {
     try {
         const { id } = req.params;
-        const shelterDeleted = await Shelter.findByIdAndDelete(id);
         
-        if (!shelterDeleted) {
-        return res.status(404).json({ message: "Protectora no encontrada" });
+        // Buscamos la protectora antes de borrarla para saber qué imagen tiene
+        const shelterToDelete = await Shelter.findById(id);
+
+        if (!shelterToDelete) {
+            return res.status(404).json({ message: "La protectora no existe" });
         }
-        
-        return res.status(200).json({
-        message: "Protectora eliminada correctamente",
-        deleted: shelterDeleted
-        });
+
+        // Si la protectora tiene una imagen guardada, llamamos a la utilidad
+        if (shelterToDelete.image) {
+            deleteImgCloudinary(shelterToDelete.image);
+        }
+
+        // Ahora borramos el registro de MongoDB
+        await Shelter.findByIdAndDelete(id);
+
+        return res.status(200).json({ message: "Protectora e imagen borradas con éxito" });
     } catch (error) {
-        return res.status(400).json({ error: "No se ha podido eliminar la protectora" });
+        return res.status(500).json({ error: "Error al eliminar la protectora" });
     }
 };
 
+    /**
+     * GET /api/shelters/ -> para traer todas las protectoras
+     */
+const getAllShelters = async (req, res) => {
+    try {
+        // Buscamos todas las protectoras y traemos la info de sus mascotas
+        const allShelters = await Shelter.find().populate("pets");
+        
+        if (allShelters.length === 0) {
+            return res.status(404).json({ message: "No hay protectoras registradas" });
+        }
 
-module.exports = { postShelter, getShelter, putShelter, deleteShelter };
+        return res.status(200).json(allShelters);
+    } catch (error) {
+        return res.status(500).json({ 
+            message: "Error al obtener las protectoras",
+            error: error.message 
+        });
+    }
+};
+
+module.exports = { postShelter, getShelter, putShelter, deleteShelter, getAllShelters };
 

@@ -1,15 +1,27 @@
+
+// src/api/routes/pets.routes.js
 const express = require("express");
-const { 
-	getPets,
-    getPetById,
-    createPet,
-    updatePet,
-    deletePet,
-    searchPetsByName,
-    getPetsByAnimal,
-    getRandomPet,
-    bulkCreatePets
-    } = require("../controllers/pets.controllers");
+const { getPets, createPet, updatePet, deletePet } = require("../controllers/pets.controllers");
+const { isAuth, isAdmin, isTrabajador } = require("../../middlewares/auth.middleware");
+const { upload } = require('../../middlewares/file')
+
+const router = express.Router();
+
+// Rutas protegidas por rol
+router.get("/", [isAuth], getPets); // GET /api/pets --  AUTORIZADO (loging)
+router.post("/", [isAuth, isTrabajador], upload.single('image'), createPet); // POST /api/pets --  Trabajador y Admin
+router.put("/:id", [isAuth, isTrabajador], updatePet); // PUT /api/pets/:id --  Trabajador y Admin
+router.delete("/:id", [isAuth, isAdmin], deletePet); // DELETE /api/pets/:id --  Admin
+
+module.exports = router;
+
+
+
+/*
+----- Codigo anterior a las utorizaciones de usuarios
+
+const express = require("express");
+const { getPets, getPetById, createPet, updatePet, deletePet, searchPetsByName, getPetsByAnimal, getRandomPet, bulkCreatePets } = require("../controllers/pets.controllers");
 
 const router = express.Router();
 
@@ -27,3 +39,4 @@ router.get("/random", getRandomPet);         // GET /api/pets/random
 router.post("/bulk", bulkCreatePets);        // POST /api/pets/bulk
 
 module.exports = router;
+*/

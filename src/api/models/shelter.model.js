@@ -7,6 +7,7 @@ const shelterSchema = new Schema(
         address: { type: String, required: true, trim: true },
         contactEmail: { type: String, required: true, trim: true },
         phone: { type: Number, required: false },
+        image: { type: String, required: true }, // URL de Cloudinary
         // relación con Pets
         pets: [
         {

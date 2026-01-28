@@ -6,7 +6,7 @@ const pets = [
         raza: "Labrador",
         gender: "Hembra",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog1.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626415/1_luna_labrador_w16zqw.jpg",
         status: "En adopción"
     },
     {
@@ -16,7 +16,7 @@ const pets = [
         raza: "Común Europeo",
         gender: "Macho",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat1.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626414/2_simba_gato_k84axn.jpg",
         status: "En adopción"
     },
     {
@@ -26,7 +26,7 @@ const pets = [
         raza: "Canario",
         gender: "Macho",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/bird1.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626414/3_pipo_canario_h9ehtm.jpg",
         status: "En adopción"
     },
     {
@@ -36,7 +36,7 @@ const pets = [
         raza: "Golden Retriever",
         gender: "Hembra",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog2.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626413/4_nala_golden_fyucqh.jpg",
         status: "Urgente"
     },
     {
@@ -46,7 +46,7 @@ const pets = [
         raza: "Ruso",
         gender: "Macho",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/hamster1.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626413/5_bolas_hamster_gloqxf.jpg",
         status: "En adopción"
     },
     {
@@ -56,7 +56,7 @@ const pets = [
         raza: "Siamés",
         gender: "Hembra",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat2.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626412/6_coco_siames_pjfaxk.jpg",
         status: "En adopción"
     },
     {
@@ -66,7 +66,7 @@ const pets = [
         raza: "Pastor Alemán",
         gender: "Macho",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog3.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626412/7_thor_pastor_zhbbrk.jpg",
         status: "En adopción"
     },
     {
@@ -76,7 +76,7 @@ const pets = [
         raza: "Persa",
         gender: "Hembra",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat3.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626412/8_mimi_persa_r6nud3.jpg",
         status: "Adoptado"
     },
     {
@@ -86,7 +86,7 @@ const pets = [
         raza: "Beagle",
         gender: "Macho",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog4.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626412/9_toby_beagle_gayrbu.jpg",
         status: "En adopción"
     },
     {
@@ -96,7 +96,7 @@ const pets = [
         raza: "Border Collie",
         gender: "Hembra",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog5.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626412/10_kira_border_collie_qrw3nd.jpg",
         status: "En adopción"
     },
     {
@@ -106,7 +106,7 @@ const pets = [
         raza: "Maine Coon",
         gender: "Macho",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat4.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626411/11_oliver_Maine_Coon_qjrjnf.jpg",
         status: "En adopción"
     },
     {
@@ -116,7 +116,7 @@ const pets = [
         raza: "Periquito",
         gender: "Hembra",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/bird2.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626409/12_tweety_Periquito_fouziq.jpg",
         status: "En adopción"
     },
     {
@@ -126,7 +126,7 @@ const pets = [
         raza: "Boxer",
         gender: "Macho",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog6.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626409/13_bruno_Boxer_zuoinp.jpg",
         status: "En adopción"
     },
     {
@@ -136,7 +136,7 @@ const pets = [
         raza: "Ragdoll",
         gender: "Hembra",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat5.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626410/14_bella_Ragdoll_wvmku6.jpg",
         status: "Urgente"
     },
     {
@@ -146,7 +146,7 @@ const pets = [
         raza: "Chihuahua",
         gender: "Macho",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog7.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626410/15_max_Chihuahua_emjkjr.jpg",
         status: "En adopción"
     },
     {
@@ -156,7 +156,7 @@ const pets = [
         raza: "Roborovski",
         gender: "Hembra",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/hamster2.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626409/16_hamster_Roborovski_mkdlje.jpg",
         status: "En adopción"
     },
     {
@@ -166,7 +166,7 @@ const pets = [
         raza: "Mestizo",
         gender: "Macho",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog8.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626410/17_rex_Mestizo_qffvdf.jpg",
         status: "En adopción"
     },
     {
@@ -176,7 +176,7 @@ const pets = [
         raza: "Bengala",
         gender: "Hembra",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat6.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626408/18_sasha_Bengala_uumwdh.jpg",
         status: "En adopción"
     },
     {
@@ -186,7 +186,7 @@ const pets = [
         raza: "Bulldog Francés",
         gender: "Macho",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog9.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626408/19_rocky_Bulldog_Franc%C3%A9s_kxwvqm.jpg",
         status: "En adopción"
     },
     {
@@ -196,7 +196,7 @@ const pets = [
         raza: "Cocker Spaniel",
         gender: "Hembra",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog10.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/20_Daisy_Cocker_Spaniel_ex54qp.jpg",
         status: "En adopción"
     },
     {
@@ -206,7 +206,7 @@ const pets = [
         raza: "Azul Ruso",
         gender: "Macho",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat7.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/21_leo_azul_ruso_rgekp5.jpg",
         status: "En adopción"
     },
     {
@@ -216,7 +216,7 @@ const pets = [
         raza: "Agapornis",
         gender: "Hembra",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/bird3.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/22_sky_Agapornis_rbvx1l.jpg",
         status: "En adopción"
     },
     {
@@ -226,7 +226,7 @@ const pets = [
         raza: "Rottweiler",
         gender: "Macho",
         size: "Grande",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog11.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/23_baco_Rottweiler_afeysk.jpg",
         status: "En adopción"
     },
     {
@@ -236,7 +236,7 @@ const pets = [
         raza: "Sphynx",
         gender: "Hembra",
         size: "Mediano",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/cat8.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/24_mochi_Sphynx_uxlavm.jpg",
         status: "En adopción"
     },
     {
@@ -246,7 +246,7 @@ const pets = [
         raza: "Caniche",
         gender: "Hembra",
         size: "Pequeño",
-        image: "https://res.cloudinary.com/demo/image/upload/v1/pets/dog12.jpg",
+        image: "https://res.cloudinary.com/dr882vpxg/image/upload/v1769626407/25_zoe_Caniche_c5vkiy.jpg",
         status: "En adopción"
     }
 ];
