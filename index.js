@@ -5,7 +5,7 @@ const { connectDB } = require("./src/config/db");
 //const { connectCloudinary } = require("./src/config/cloudinary");
 
 const petRoutes = require("./src/api/routes/pets.routes");  // importamos el router
-//const cinemaRoutes = require("./src/api/routes/cinemas.routes");
+const shelterRoutes = require("./src/api/routes/shelters.routes");
 //const userRoutes = require("./src/api/routes/user.routes");
 
 
@@ -15,7 +15,7 @@ connectDB();
 //connectCloudinary();
 
 app.use("/api/pets", petRoutes);    // Montamos el router en la ruta base /api/movies
-//app.use("/api/cinemas", cinemaRoutes);
+app.use("/api/shelters", shelterRoutes);
 //app.use("/api/users", userRoutes);
 
 

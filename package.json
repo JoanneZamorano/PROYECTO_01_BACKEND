@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed": "node ./src/utils/seed/pets.seed.js"
+    "seed": "node ./src/utils/seed/pets.seed.js",
+    "seedShel": "node ./src/utils/seed/shelters.seed.js"
   },
   "repository": {
     "type": "git",
