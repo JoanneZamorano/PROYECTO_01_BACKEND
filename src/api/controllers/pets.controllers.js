@@ -65,18 +65,37 @@ const createPet = async (req, res) => {
  */
 const updatePet = async (req, res) => {
     try {
-        const updated = await Pet.findByIdAndUpdate(req.params.id, req.body, {
+        const { id } = req.params;
+        // 1. Buscamos el animal actual para tener la referencia de la imagen vieja
+        const prevPet = await Pet.findById(id);
+        if (!prevPet) return res.status(404).json({ error: "Animal no encontrado" });
+        // 2. Preparamos los datos de actualización desde el body
+        const updates = { ...req.body };
+        let newImgId = null;
+        // 3. Si llega una imagen nueva a través de Insomnia
+        if (req.file) {
+            updates.image = req.file.path; // Actualizamos la URL en la BBDD
+            newImgId = req.file.path;      // Usamos esto como flag de que hay cambio
+        }
+        // 4. Actualizamos el animal en MongoDB
+        const updated = await Pet.findByIdAndUpdate(id, updates, {
             new: true,
             runValidators: true,
         });
-        if (!updated) {
-            return res.status(404).json({ error: "Animal no encontrado" });
+        // 5. Eliminamos la imagen anterior SOLO después de actualizar con éxito
+        // Comprobamos si hay imagen nueva Y si el animal ya tenía una imagen previa
+        if (newImgId && prevPet.image) {
+            await deleteImgCloudinary(prevPet.image);
         }
-        res.status(200).json(updated);
+        return res.status(200).json(updated);
+        
     } catch (err) {
-        res.status(400).json({
-        error: "Error al actualizar el animal",
-        detalles: err.message,
+        // Si hay un error y se llegó a subir una imagen a Cloudinary, la borramos para no dejar basura
+        if (req.file) await deleteImgCloudinary(req.file.path);
+        
+        return res.status(400).json({
+            error: "Error actualizando el animal",
+            detalles: err.message,
         });
     }
 };

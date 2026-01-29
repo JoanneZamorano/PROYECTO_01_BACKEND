@@ -10,7 +10,7 @@ const router = express.Router();
 // Rutas protegidas por rol
 router.get("/", [isAuth], getPets); // GET /api/pets --  AUTORIZADO (loging)
 router.post("/", [isAuth, isTrabajador], upload.single('image'), createPet); // POST /api/pets --  Trabajador y Admin
-router.put("/:id", [isAuth, isTrabajador], updatePet); // PUT /api/pets/:id --  Trabajador y Admin
+router.put("/:id", [isAuth, isTrabajador],upload.single('image'), updatePet); // PUT /api/pets/:id --  Trabajador y Admin
 router.delete("/:id", [isAuth, isAdmin], deletePet); // DELETE /api/pets/:id --  Admin
 
 module.exports = router;

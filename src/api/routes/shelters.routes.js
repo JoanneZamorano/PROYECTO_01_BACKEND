@@ -10,7 +10,7 @@ router.get("/", [isAuth], getAllShelters); // GET /api/shelters --  Admin
 router.get("/:id", [isAuth], getShelter); // GET /api/shelters/:id --  Admin
 
 router.post("/", [isAuth, isAdmin], upload.single('image'), postShelter); // POST /api/shelters --  Admin y trabajador
-router.put("/:id", [isAuth, isAdmin], putShelter); // PUT /api/shelters/:id --  Admin y trabajador
+router.put("/:id", [isAuth, isAdmin],upload.single('image'), putShelter); // PUT /api/shelters/:id --  Admin y trabajador
 router.delete("/:id", [isAuth, isAdmin], deleteShelter); // DELETE /api/shelters/:id --  Admin y trabajador
 
 module.exports = router;
