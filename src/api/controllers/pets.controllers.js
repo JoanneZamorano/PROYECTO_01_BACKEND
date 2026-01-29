@@ -1,5 +1,5 @@
 const Pet = require("../models/pet.model");
-
+const { deleteImgCloudinary } = require("../../utils/cloudinary.util");
 /**
  * GET /api/pets -> Esto son los endpoints que aplicaremos posteriormente
  * - Obtiene todas los animales
@@ -40,16 +40,22 @@ const getPetById = async (req, res) => {
  */
 const createPet = async (req, res) => {
     try {
-        const pet = await Pet.create(req.body);
-        res.status(201).json(pet);
+        const newPet = new Pet(req.body);
+
+        if (req.file) {
+            newPet.image = req.file.path; // O req.file.secure_url según tu config
+        }
+
+        const petSaved = await newPet.save();
+        
+        res.status(201).json(petSaved);
     } catch (err) {
         res.status(400).json({
-        error: "Error al crear el animal",
-        detalles: err.message,
+            error: "Error al crear el animal",
+            detalles: err.message
         });
     }
 };
-
 /**
  * PUT /api/pets/:id
  * - Actualiza un animal existente.
@@ -82,11 +88,19 @@ const updatePet = async (req, res) => {
  */
 const deletePet = async (req, res) => {
     try {
-        const deleted = await Pet.findByIdAndDelete(req.params.id);
-        if (!deleted) {
-            return res.status(404).json({ error: "Animal no encontrado" });
+        const { id } = req.params;
+        const petToDelete = await Pet.findById(id);
+
+        if (!petToDelete) {
+            return res.status(404).json({ message: "Animal no encontrado" });
         }
-        res.status(200).json({ mensaje: "Animal eliminado correctamente" });
+
+        if (petToDelete.image) {
+            deleteImgCloudinary(petToDelete.image);
+        }
+
+        await Pet.findByIdAndDelete(id);
+        return res.status(200).json({ message: "Animal e imagen borradas con éxito" });
     } catch (err) {
         res.status(400).json({
         error: "Error al eliminar al animal",

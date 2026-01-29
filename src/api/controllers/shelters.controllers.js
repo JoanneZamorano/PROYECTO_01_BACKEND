@@ -16,8 +16,11 @@ const postShelter = async (req, res) => {
 
         const shelterSaved = await newShelter.save();
         return res.status(201).json(shelterSaved);
-    } catch (error) {
-        return res.status(400).json({ error: "No se ha podido crear la protectora" });
+    } catch (err) {
+        res.status(400).json({
+        error: "Error al crear la protectora",
+        detalles: err.message,
+        });
     }
     };
 
