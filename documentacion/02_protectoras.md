@@ -23,7 +23,8 @@ Para crear una protectora, el Administrador debe enviar un formulario `multipart
 * **Proceso**: La imagen se sube a Cloudinary y la URL resultante se guarda en MongoDB Atlas.
 
 **Evidencias de Creación:**
-* **Captura POST**: ![POST Protectora Insomnia](./documentacion/capturas/protectora_post.jpg)
+* **Captura POST**: 
+![POST Protectora](./capturas/protectora_post.jpg)
 
 ---
 
@@ -32,7 +33,8 @@ Para crear una protectora, el Administrador debe enviar un formulario `multipart
 Este endpoint permite consultar la información de las protectoras registradas. En nuestro desarrollo, hemos aplicado `.populate("pets")` para traer también la información de los animales asociados.
 
 **Captura de Consulta:**
-* **Captura GET**: ![POST Protectora Insomnia](./documentacion/capturas/protectora_get.jpg)
+* **Captura GET**: 
+![GET Protectora](./capturas/protectora_get.jpg)
 
 ---
 
@@ -43,8 +45,8 @@ Esta es una de las funciones más complejas. El controlador está diseñado para
 2.  Elimina la imagen antigua de Cloudinary usando su `public_id` para evitar almacenamiento basura.
 
 **Prueba de actualización:**
-* **Captura PUT**: ![POST Protectora Insomnia](./documentacion/capturas/protectora_put.jpg)
-
+* **Captura PUT**: 
+![PUT Protectora](./capturas/protectora_put.jpg)
 ---
 
 ## 5. Operación DELETE: Eliminar Protectora
@@ -54,7 +56,8 @@ Al eliminar una protectora, el sistema no solo borra el registro de MongoDB, sin
 * **Lógica**: Se busca el documento, se extrae la URL de la imagen y se procede al borrado físico en ambos servicios.
 
 **Evidencias de Borrado:**
-* **Captura DELETE**: ![POST Protectora Insomnia](./documentacion/capturas/protectora_delete.jpg)
+* **Captura DELETE**: 
+![DELETE Protectora](./capturas/protectora_delete.jpg)
 
 ---
 
