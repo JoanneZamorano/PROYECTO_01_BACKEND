@@ -49,3 +49,16 @@ src/
 ├── utils/             # Generación de Tokens y Seeds
 └── index.js           # Punto de entrada
 ```
+
+---
+
+## 📂 Documentación del Proyecto
+
+Para conocer en detalle el funcionamiento de la API, los permisos por roles y las pruebas de funcionamiento (CRUD), puedes consultar los siguientes apartados:
+
+* [👤 01 - Gestión de Usuarios](./documentacion/01_usuarios.md)
+* [🏠 02 - Gestión de Protectoras](./documentacion/02_protectoras.md)
+* [🐾 03 - Gestión de Animales](./documentacion/03_animales.md)
+
+
+Dentro de cada archivo encontrarás una explicación detallada acompañada de capturas de **Insomnia**, **MongoDB Atlas** y la gestión de imágenes en **Cloudinary**.
